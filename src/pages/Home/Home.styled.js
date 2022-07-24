@@ -14,6 +14,7 @@ export const CardWrapper = styled.div`
 `;
 
 export const MovieImage = styled.img`
+    display: block;
     width: 100%;
     height: auto;
     border-radius: 4px;
