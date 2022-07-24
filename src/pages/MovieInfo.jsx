@@ -22,7 +22,7 @@ const MovieInfo = () => {
         <>
           <BackLink to={backLinkHref}>Go back</BackLink>
             <div>
-            <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} />
+            <img src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} alt={movie.title} width="220" />
             <h1>{movie.title} ({new Date(movie.release_date).getFullYear()})</h1>
             <span>User Score: {Math.round((movie.vote_average) * 10)}% </span>
             <p>Overview</p>
