@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams, Routes, Route, useLocation } from 'react-router-dom';
 import { getMovieById } from 'services/moviesApi';
 import Cast from '../../components/Cast/Cast';
-import Reviews from '../../components/Reviews';
+import Reviews from '../../components/Reviews/Reviews';
 import { BackLink } from '../../components/BackLink';
 import {
   Container,
@@ -24,8 +24,16 @@ const MovieInfo = () => {
   const backLinkHref = location.state?.from ?? "/";
 
   useEffect(() => {
-    getMovieById(movieId).then(movie => setMovie(movie));
+    try {
+      getMovieById(movieId).then(movie => setMovie(movie));
+    } catch (error) {
+      console.log(error);
+    }
   }, [movieId]);
+
+  if (!movie) {
+    return;
+  }
   
   return (
     <main>
@@ -49,12 +57,8 @@ const MovieInfo = () => {
             <Wrapper>
               <AdditionalText>Additional information</AdditionalText>
               <AdditionalList>
-                <li>
-                  <AdditionalLink to="cast">Cast</AdditionalLink>
-                </li>
-                <li>
-                  <AdditionalLink to="reviews">Reviews</AdditionalLink>
-                </li>
+                <AdditionalLink to="cast">Cast</AdditionalLink>
+                <AdditionalLink to="reviews">Reviews</AdditionalLink>
               </AdditionalList>
             </Wrapper>
         </div>

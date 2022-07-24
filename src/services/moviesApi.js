@@ -23,3 +23,9 @@ export async function getReviews(id) {
     const data = await res.json();
     return data;
 }
+
+export async function searcMovie(query) {
+    const res = await fetch(`https://api.themoviedb.org/3/search/movie?api_key=${KEY}&query=${query}`);
+    const data = await res.json();
+    return data.results;
+}

@@ -50,7 +50,7 @@ export const Wrapper = styled.p`
   margin-bottom: 8px;
 `;
 
-export const AdditionalList = styled.ul`
+export const AdditionalList = styled.div`
   display: flex;
   list-style: none;
 `;
