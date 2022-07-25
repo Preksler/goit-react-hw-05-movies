@@ -6,6 +6,10 @@ export const Container = styled.div`
     gap: 8px;
 `;
 
+export const ReviewWrapper = styled.div`
+    width: 100%;
+`;
+
 export const AutorName = styled.h3`
     color: #fff;
     background-color: rgb(255 69 0);

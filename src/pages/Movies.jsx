@@ -1,4 +1,4 @@
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { searcMovie } from '../services/moviesApi';
 import { SearchBox } from '../components/SearchBox/SearchBox';
@@ -6,41 +6,41 @@ import { MoviesList } from 'components/MoviesList/MoviesList';
 
 const Movies = () => {
     const [movies, setMovies] = useState([]);
-    const [search, setSearch] = useState('');
+    const [searchQuery, setSearchQuery] = useState('');
     const [searcParams, setSearchParams] = useSearchParams();
     const SearchName = searcParams.get('query') ?? "";
+
+    const { search } = useLocation();
 
     useEffect(() => {
         if (!search) {
             return;
         }
         try {
-            searcMovie(search).then(movies => setMovies(movies));
+            searcMovie(SearchName).then(movies => setMovies(movies));
         } catch (error) {
             console.log(error);
-        } finally {
-            setSearch(search);
         }
-    }, [search]);
+    }, [SearchName, search]);
 
-     if (!movies) {
+    if (!movies) {
         return;
     }
 
-    const updateQueryString = (query) => {
-        const nextParams = query !== "" ? { query } : {};
-        setSearchParams(nextParams);
+    const handleInputChange = (query) => {
+        setSearchQuery(query);
     };
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        setSearch(SearchName);
+        searcMovie(searchQuery).then(movies => setMovies(movies));
+        setSearchParams({ query: searchQuery });
     }
-
+    
     return (
         <main>
             <form onSubmit={handleSubmit}>
-                <SearchBox value={SearchName} onChange={updateQueryString} />
+                <SearchBox value={searchQuery} onChange={handleInputChange} />
             </form>
             <MoviesList movies={movies} />
         </main>

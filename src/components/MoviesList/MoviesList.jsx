@@ -1,3 +1,4 @@
+import PropType from 'prop-types';
 import { Link, useLocation } from "react-router-dom";
 import { Container, CardWrapper, MovieImage, MovieName } from "./MoviesList.styled";
 
@@ -16,3 +17,11 @@ export const MoviesList = ({ movies }) => {
         </Container>
     );
 };
+
+MoviesList.propTypes = {
+    movies: PropType.arrayOf(PropType.shape({
+        id: PropType.number.isRequired,
+        title: PropType.string.isRequired,
+        poster_path: PropType.string.isRequired,
+    })).isRequired,
+}

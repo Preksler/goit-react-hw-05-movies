@@ -1,12 +1,13 @@
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { getCredits } from "../../services/moviesApi";
 import { Container, CastWrapper, CastImage, CastName, CastCharacter } from "./Cast.styled";
 import NoPhoto from "../../images/no-photo.jpg";
 
-const Cast = ({ movieId }) => {
+const Cast = () => {
 
     const [movie, setMovie] = useState(null);
-
+    const { movieId } = useParams();
     useEffect(() => {
         try {
             getCredits(movieId).then(movie => setMovie(movie));

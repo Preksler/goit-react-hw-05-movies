@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
-import { useParams, Routes, Route, useLocation } from 'react-router-dom';
+import { useParams, useLocation, Outlet } from 'react-router-dom';
 import { getMovieById } from 'services/moviesApi';
-import Cast from '../../components/Cast/Cast';
-import Reviews from '../../components/Reviews/Reviews';
 import { BackLink } from '../../components/BackLink';
 import {
   Container,
@@ -19,7 +17,6 @@ import {
 const MovieInfo = () => {
   const { movieId } = useParams();
   const [movie, setMovie] = useState(null);
-
   const location = useLocation();
   const backLinkHref = location.state?.from ?? "/";
 
@@ -64,10 +61,7 @@ const MovieInfo = () => {
         </div>
         </>
       )}
-      <Routes>
-        <Route path="cast" element={<Cast movieId={movieId} />} />
-        <Route path="reviews" element={<Reviews movieId={movieId} />} />
-      </Routes>
+      <Outlet />
     </main>
   );
 }

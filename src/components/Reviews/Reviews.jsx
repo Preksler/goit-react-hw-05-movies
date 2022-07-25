@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 import { getReviews } from "../../services/moviesApi";
-import { Container, AutorName, AutorContent, NoReviews } from "./Reviews.styled";
+import { Container, ReviewWrapper, AutorName, AutorContent, NoReviews } from "./Reviews.styled";
 
-const Reviews = ({ movieId }) => {
+const Reviews = () => {
 
     const [movie, setMovie] = useState(null);
+    const { movieId } = useParams();
 
     useEffect(() => {
         try {
@@ -23,10 +25,10 @@ const Reviews = ({ movieId }) => {
             {movie.results.length > 0 ? (
             <>
                 {movie.results.map(review => (
-                    <div key={review.id}>
+                    <ReviewWrapper key={review.id}>
                         <AutorName>{review.author}</AutorName>
                         <AutorContent>{review.content}</AutorContent>
-                    </div>
+                    </ReviewWrapper>
                 ))}
             </>
             ) : (
