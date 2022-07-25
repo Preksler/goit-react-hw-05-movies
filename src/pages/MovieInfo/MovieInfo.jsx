@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams, useLocation, Outlet } from 'react-router-dom';
 import { getMovieById } from 'services/moviesApi';
-import { BackLink } from '../../components/BackLink';
+import { BackLink } from '../../components/BackLink/BackLink';
 import {
   Container,
   MovieImage,

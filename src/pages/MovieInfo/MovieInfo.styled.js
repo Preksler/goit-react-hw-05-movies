@@ -41,7 +41,7 @@ export const MovieDescription = styled.p`
     margin-bottom: 16px;
 `;
 
-export const Wrapper = styled.p`
+export const Wrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;

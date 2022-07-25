@@ -5,9 +5,9 @@ import { Container, CastWrapper, CastImage, CastName, CastCharacter } from "./Ca
 import NoPhoto from "../../images/no-photo.jpg";
 
 const Cast = () => {
-
     const [movie, setMovie] = useState(null);
     const { movieId } = useParams();
+
     useEffect(() => {
         try {
             getCredits(movieId).then(movie => setMovie(movie));
