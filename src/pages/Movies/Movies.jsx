@@ -1,7 +1,7 @@
 import { useSearchParams, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { searcMovie } from '../services/moviesApi';
-import { SearchBox } from '../components/SearchBox/SearchBox';
+import { searcMovie } from '../../services/moviesApi';
+import { SearchBox } from '../../components/SearchBox/SearchBox';
 import { MoviesList } from 'components/MoviesList/MoviesList';
 
 const Movies = () => {
