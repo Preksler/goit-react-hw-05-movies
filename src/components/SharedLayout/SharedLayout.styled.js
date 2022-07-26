@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
 export const Container = styled.div`
+    position: relative;
     max-width: 960px;
     margin: 0 auto;
     padding: 0 16px;
@@ -30,5 +31,9 @@ export const Link = styled(NavLink)`
     &.active {
         color: white;
         background-color: orangered;
+    }
+
+    :hover:not(.active) {
+        color: orangered;
     }
 `;

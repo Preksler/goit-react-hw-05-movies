@@ -1,15 +1,14 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  display: inline-flex;
-  align-items: center;
-  position: relative;
-  margin-bottom: 16px;
-  text-transform: uppercase;
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    display: inline-flex;
 `;
 
 export const Input = styled.input`
-    padding: 8px 32px 8px 8px;
+    padding: 8px;
     border-radius: 4px;
     border-color: rgb(255 69 0);
     border-style: solid;
@@ -18,13 +17,13 @@ export const Input = styled.input`
 `;
 
 export const Button = styled.button`
-    padding: 8px;
+    padding: 8px 16px;
     border-radius: 4px;
     background-color: rgb(255 69 0);
     border: none;
     color: #fff;
-    font-size: 14px;
-    font-weight: bold;
+    font-size: 16px;
+    font-weight: 500;
     cursor: pointer;
     &:hover {
         transform: scale(1.1);
