@@ -5,6 +5,7 @@ export const SearchBox = ({ value, onChange }) => {
     <Wrapper>
         <Input
             type="text"
+            autoFocus
             value={value}
             onChange={(e) => onChange(e.target.value)}
         />
